@@ -51,8 +51,20 @@ async function autoScroll(page) {
 }
 
 async function scrapeUrl(browser, url) {
-    if (url.endsWith('.png') || url.endsWith('.png/')) {
+    if (url.endsWith('.png') || url.endsWith('.png/') || url.endsWith('.jpg') || url.endsWith('.jpg/') || url.endsWith('.svg') || url.endsWith('.svg/') || url.endsWith('.jpeg') || url.endsWith('.jpeg/')) {
         console.warn(` Skipping image URL: ${url}`)
+        return null
+    }
+    if (url.endsWith('.gif') || url.endsWith('.gif/')) {
+        console.warn(` Skipping image URL: ${url}`)
+        return null
+    }
+    if (url.endsWith('.pdf') || url.endsWith('.pdf/')) {
+        console.warn(` Skipping PDF URL: ${url}`)
+        return null
+    }
+    if (url.length < 3) {
+        console.warn(` Skipping invalid URL: ${url}`)
         return null
     }
 
