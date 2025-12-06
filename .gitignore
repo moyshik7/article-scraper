@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.env
+digital_marketing_corpus.jsonl
