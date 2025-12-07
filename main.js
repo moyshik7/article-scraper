@@ -43,7 +43,8 @@ async function scrapeUrl(page, url) {
     try {
         console.log(`→ Navigating: ${url}`);
         await page.goto(url, {
-            waitUntil: "domcontentloaded",
+            //waitUntil: "domcontentloaded",
+            waitUntil: 'networkidle2',
             timeout: 30000,
         });
 
@@ -76,7 +77,7 @@ async function scrapeUrl(page, url) {
 (async () => {
     const browser = await puppeteer.launch({
         headless: "new",
-        executablePath: '/usr/bin/chromium',
+        //executablePath: '/usr/bin/chromium',
         args: [
             "--no-sandbox",
             "--disable-setuid-sandbox",
